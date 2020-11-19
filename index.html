@@ -3,9 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tebak kata</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="wrong">
+        <source src="./sound/wrong.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="correct">
+        <source src="./sound/Correct-answer.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id='jawaban' hidden></div>
+
+    <div class="inputan">
+        <input type="text" id="input" placeholder="tebakan kamu ?" class="tebakan">
+    </div>
+
     
+
+    <main>
+        <div id="hint">Hint !!!</div>
+        <div id='hasil'></div>
+        <div class="score">
+            <div>Score : <span id='score'></span></div>
+            <div>Kesempatan : <span id='darah'></span></div>
+        </div>
+    </main>
+    
+    <center>
+        <div id='dash'></div>
+    </center>   
+    <footer>
+
+    </footer>
+
+
+
+    <script>
+        const kata = [
+            "badak", 'kuda', 'ayam', 'gajah', 'buaya', 'Semut', 'Lebah', 'Nyamuk',
+            'lalat', 'landak', 'siput', 'Ular', 'katak', 'cacing'
+        ]
+
+        function tambahHint(){
+            dash.innerHTML = ''
+            for (let i = 0; i < jawaban.innerHTML.length; i++) {
+                if (i === indexHint) dash.innerHTML += jawaban.innerHTML[i]
+                else dash.innerHTML += '_'
+
+                if (i !== jawaban.innerHTML.length) {
+                    dash.innerHTML += ' '
+                }
+            }
+        }
+
+        
+        
+        let jawaban = document.getElementById('jawaban')
+        let dash = document.getElementById('dash')
+        let btnHint = document.getElementById('hint')
+        let hasil = document.getElementById('hasil')
+        
+        let score = document.getElementById('score')
+        let darah = document.getElementById('darah')
+
+        let wrong = document.getElementById("wrong"); 
+        let correct = document.getElementById("correct")
+
+        score.innerHTML = 0
+        darah.innerHTML = 3
+
+        let number = Math.floor(Math.random() * kata.length)
+        jawaban.innerHTML = kata[number]
+
+        for (let i = 0; i < jawaban.innerHTML.length; i++) {
+            dash.innerHTML += '_'
+            if (i !== jawaban.innerHTML.length) {
+                dash.innerHTML += ' '
+            }
+        }
+
+        let indexHint = Math.floor(Math.random() * jawaban.innerHTML.length)
+        btnHint.addEventListener('click', tambahHint)
+
+        let input = document.getElementById('input')
+        input.addEventListener("keyup" , function(event) {
+            if(event.keyCode === 13){
+                event.preventDefault();
+                let input = document.getElementById('input').value
+                if (input.toLowerCase() === jawaban.innerHTML.toLowerCase()) {
+                    correct.play()
+
+                    number = Math.floor(Math.random() * kata.length)
+                    jawaban.innerHTML = kata[number]
+                    dash.innerHTML = ''
+                    for (let i = 0; i < jawaban.innerHTML.length; i++) {
+                        dash.innerHTML += '_'
+                        if (i !== jawaban.innerHTML.length) {
+                            dash.innerHTML += ' '
+                        }
+                    }
+                    hasil.innerHTML = "benar"
+                    score.innerHTML++
+                } else {
+                    wrong.play()
+                    hasil.innerHTML = "salah"
+                    darah.innerHTML--
+                    if (darah.innerHTML === '0') {
+                        alert(`Game Over
+                        Score anda : ${score.innerHTML}`)
+                        location.reload()
+                    }
+                }
+                document.getElementById('input').value = ''
+            }
+        })
+        
+        
+
+
+
+        
+
+
+        
+
+    </script>
 </body>
 </html>
