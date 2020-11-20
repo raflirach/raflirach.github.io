@@ -22,11 +22,30 @@ kota.addEventListener('mouseover', function(){
 hewan.addEventListener('click', function(){
     start.play()
 
+    function reloadSoal(num) {
+      jawaban.innerHTML = kata[number]
+      dash.innerHTML = ''
+      for (let i = 0; i < jawaban.innerHTML.length; i++) {
+        if (i===0) dash.innerHTML += jawaban.innerHTML[i] + ' '
+        else if (jawaban.innerHTML[i] === ' ') dash.innerHTML += `&nbsp;`
+        else if (jawaban.innerHTML[i] === '-') dash.innerHTML += `-`
+        else dash.innerHTML += '_'
+        if (i !== jawaban.innerHTML.length) {
+          dash.innerHTML += ' '
+        }
+      }
+    }
+
     modal.style.display = 'none'
     const kata = [
-      'Anjing Laut',
-      // "badak", 'kuda', 'ayam', 'gajah', 'buaya', 'Semut', 'Lebah', 'Nyamuk',
-      // 'lalat', 'landak', 'siput', 'Ular', 'katak', 'cacing'
+      'Anjing Laut', 'laba-laba','Anoa','Armadillo','Arwana','Babi','Babon','Badak Jawa','Bajing','Bangau',
+      'Banteng','Bebek','Bekantan','Bekicot','Belalang','belatung','Belibis','Belut','beo','Berang-Berang',
+      'Beruang','Beruang Kutub','biawak','bintang laut','biri-biri','bison','bulubabi','camar','capung',
+      'Cendrawasih','Cheetah','cumi-cumi','domba','elang','gorila','hamster','hiena','ikan','hiu','paus',
+      'pari','jaguar','kadal','kalkun','kelelawar','kijang','kuda laut','kura-kura','lumba-lumba','musang',
+      "badak", 'kuda', 'ayam', 'gajah', 'buaya', 'Semut', 'Lebah', 'Nyamuk','kangguru','kelabang','kucing',
+      'lalat', 'landak', 'siput', 'Ular', 'katak', 'cacing','gurita','harimau','iguana','jerapah','kecoa',
+      'kepiting','kerang','koala','zebra','penguin','platipus','rubah','singa','tupai'
     ]
 
     let jawaban = document.getElementById('jawaban')
@@ -38,20 +57,21 @@ hewan.addEventListener('click', function(){
     darah.innerHTML = 3
     
     let number = Math.floor(Math.random() * kata.length)
-    jawaban.innerHTML = kata[number]
-    
-    for (let i = 0; i < jawaban.innerHTML.length; i++) {
-      dash.innerHTML += '_'
-      if (i !== jawaban.innerHTML.length) {
-        dash.innerHTML += ' '
-      }
-    }
+    reloadSoal(number)
 
-    let indexHint = Math.floor(Math.random() * jawaban.innerHTML.length)
+    let indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length-1))
     btnHint.addEventListener('click', function(){
+      btnHint.style.display = 'none'
+
       dash.innerHTML = ''
       for (let i = 0; i < jawaban.innerHTML.length; i++) {
-        if (i === indexHint) dash.innerHTML += jawaban.innerHTML[i]
+        while(jawaban.innerHTML[indexHint] === '-' || jawaban.innerHTML[indexHint] === ' '){
+          indexHint = Math.floor(Math.random() * jawaban.innerHTML.length)
+        }
+        if (i === 0) dash.innerHTML += jawaban.innerHTML[i] + ' '
+        else if (i === indexHint) dash.innerHTML += jawaban.innerHTML[i]
+        else if (jawaban.innerHTML[i] === ' ') dash.innerHTML += `&nbsp;`
+        else if (jawaban.innerHTML[i] === '-') dash.innerHTML += `-`
         else dash.innerHTML += '_'
 
         if (i !== jawaban.innerHTML.length) dash.innerHTML += ' '
@@ -68,14 +88,9 @@ hewan.addEventListener('click', function(){
           correct.play()
                 
           number = Math.floor(Math.random() * kata.length)
-          jawaban.innerHTML = kata[number]
-          dash.innerHTML = ''
-          for (let i = 0; i < jawaban.innerHTML.length; i++) {
-            dash.innerHTML += '_'
-            if (i !== jawaban.innerHTML.length) {
-              dash.innerHTML += ' '
-            }
-          }
+          reloadSoal(number)
+          indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length-1))
+          btnHint.style.display = 'block'
           hasil.innerHTML = "benar"
           setTimeout(function(){ hasil.innerHTML = "" }, 3000);
           score.innerHTML++
@@ -98,9 +113,29 @@ hewan.addEventListener('click', function(){
 kota.addEventListener('click', function(){
     start.play()
 
+    function reloadSoal(num) {
+      jawaban.innerHTML = kata[number]
+      dash.innerHTML = ''
+      for (let i = 0; i < jawaban.innerHTML.length; i++) {
+        if (i===0) dash.innerHTML += jawaban.innerHTML[i] + ' '
+        else if (jawaban.innerHTML[i] === ' ') dash.innerHTML += `&nbsp;`
+        else if (jawaban.innerHTML[i] === '-') dash.innerHTML += `-`
+        else dash.innerHTML += '_'
+        if (i !== jawaban.innerHTML.length) {
+          dash.innerHTML += ' '
+        }
+      }
+    }
+
     modal.style.display = 'none'
     const kata = [
-        'Bandung', 'Semarang', 'Jakarta'
+        'Banda Aceh','Sabang','Denpasar','Pangkalpinang','Cilegon','Serang','Tangerang','Bengkulu','Gorontalo',
+        'Jambi','Bandung','Jakarta','Bekasi','Bogor','Cimahi','Cirebon','Depok','Sukabumi','Tasikmalaya',
+        'Banjar','Magelang','Pekalongan','Purwokerto','Salatiga','Semarang','Surakarta','Tegal','Batu',
+        'Blitar','kediri','madiun','malang','mojokerto','pasuruan','probolinggo','surabaya','pontianak',
+        'singkawang','banjarmasin','palangkaraya','balikpapan','botang','samarinda','tarakan','batam',
+        'tanjungpinang','bandar lampung','ternate','ambon','mataram','kupang','sorong','jayapura','bau-bau',
+        'palu','manado','palembang','yogyakarta'
     ]
 
     let jawaban = document.getElementById('jawaban')
@@ -112,20 +147,21 @@ kota.addEventListener('click', function(){
     darah.innerHTML = 3
     
     let number = Math.floor(Math.random() * kata.length)
-    jawaban.innerHTML = kata[number]
-    
-    for (let i = 0; i < jawaban.innerHTML.length; i++) {
-      dash.innerHTML += '_'
-      if (i !== jawaban.innerHTML.length) {
-        dash.innerHTML += ' '
-      }
-    }
+    reloadSoal(number)
 
-    let indexHint = Math.floor(Math.random() * jawaban.innerHTML.length)
+    let indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length - 1))
     btnHint.addEventListener('click', function(){
+      btnHint.style.display = 'none'
+
       dash.innerHTML = ''
       for (let i = 0; i < jawaban.innerHTML.length; i++) {
-        if (i === indexHint) dash.innerHTML += jawaban.innerHTML[i]
+        while(jawaban.innerHTML[indexHint] === '-' || jawaban.innerHTML[indexHint] === ' '){
+          indexHint = Math.floor(Math.random() * jawaban.innerHTML.length)
+        }
+        if (i === 0) dash.innerHTML += jawaban.innerHTML[i] + ' '
+        else if (i === indexHint) dash.innerHTML += jawaban.innerHTML[i]
+        else if (jawaban.innerHTML[i] === ' ') dash.innerHTML += `&nbsp;`
+        else if (jawaban.innerHTML[i] === '-') dash.innerHTML += `-`
         else dash.innerHTML += '_'
 
         if (i !== jawaban.innerHTML.length) dash.innerHTML += ' '
@@ -142,14 +178,10 @@ kota.addEventListener('click', function(){
           correct.play()
                 
           number = Math.floor(Math.random() * kata.length)
-          jawaban.innerHTML = kata[number]
-          dash.innerHTML = ''
-          for (let i = 0; i < jawaban.innerHTML.length; i++) {
-            dash.innerHTML += '_'
-            if (i !== jawaban.innerHTML.length) {
-              dash.innerHTML += ' '
-            }
-          }
+          reloadSoal(number)
+          indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length - 1))
+          btnHint.style.display = 'block'
+
           hasil.innerHTML = "benar"
           setTimeout(function(){ hasil.innerHTML = "" }, 3000);
           score.innerHTML++
