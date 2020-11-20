@@ -20,7 +20,9 @@ let plus = document.getElementById('plus')
 let minus = document.getElementById('minus')
 
 window.onload = () => {
-  up.play()
+  setTimeout(function(){ 
+    up.play()
+  }, 3000);
 };
 
 
