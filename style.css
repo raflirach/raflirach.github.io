@@ -78,9 +78,9 @@ footer {
 }
 
 .modal {
-    display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: block; 
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
     width: 100%; 
@@ -145,4 +145,12 @@ footer a {
     color: red;
     font-size: 32pt;
     text-align: center;
+}
+
+#plus {
+    color: greenyellow;
+}
+
+#minus{
+    color: red;
 }

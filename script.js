@@ -16,6 +16,9 @@ let select = document.getElementById("select")
 let score = document.getElementById('score')
 let darah = document.getElementById('darah')
 
+let plus = document.getElementById('plus')
+let minus = document.getElementById('minus')
+
 up.play()
 endModal.style.display = 'none'
 
@@ -68,6 +71,13 @@ hewan.addEventListener('click', function(){
     let indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length-1))
     btnHint.addEventListener('click', function(){
       btnHint.style.display = 'none'
+      plus.innerHTML = '-50'
+      plus.style.color = 'red'
+      score.innerHTML = +score.innerHTML - 50
+      setTimeout(function(){ 
+        plus.innerHTML = ""
+        plus.style.color = 'greenyellow'
+      }, 3000);
 
       dash.innerHTML = ''
       for (let i = 0; i < jawaban.innerHTML.length; i++) {
@@ -98,12 +108,20 @@ hewan.addEventListener('click', function(){
           indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length-1))
           btnHint.style.display = 'block'
           hasil.innerHTML = "benar"
-          setTimeout(function(){ hasil.innerHTML = "" }, 3000);
-          score.innerHTML++
+          plus.innerHTML = "+100"
+          setTimeout(function(){ 
+            hasil.innerHTML = "" 
+            plus.innerHTML = ""
+          }, 3000);
+          score.innerHTML = +score.innerHTML + 100
         } else {
           wrong.play()
           hasil.innerHTML = "salah"
-          setTimeout(function(){ hasil.innerHTML = "" }, 3000);
+          minus.innerHTML = "-1"
+          setTimeout(function(){ 
+            hasil.innerHTML = "" 
+            minus.innerHTML = ""
+          }, 3000);
           darah.innerHTML--
           if (darah.innerHTML === '0') {
             endModal.style.display = 'block'
@@ -164,6 +182,13 @@ kota.addEventListener('click', function(){
     let indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length - 1))
     btnHint.addEventListener('click', function(){
       btnHint.style.display = 'none'
+      plus.innerHTML = '-50'
+      plus.style.color = 'red'
+      score.innerHTML = +score.innerHTML - 50
+      setTimeout(function(){ 
+        plus.innerHTML = ""
+        plus.style.color = 'greenyellow'
+      }, 3000);
 
       dash.innerHTML = ''
       for (let i = 0; i < jawaban.innerHTML.length; i++) {
@@ -193,14 +218,21 @@ kota.addEventListener('click', function(){
           reloadSoal(number)
           indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length - 1))
           btnHint.style.display = 'block'
-
           hasil.innerHTML = "benar"
-          setTimeout(function(){ hasil.innerHTML = "" }, 3000);
-          score.innerHTML++
+          plus.innerHTML = "+100"
+          setTimeout(function(){ 
+            hasil.innerHTML = "" 
+            plus.innerHTML = ""
+          }, 3000);
+          score.innerHTML = +score.innerHTML + 100
         } else {
           wrong.play()
           hasil.innerHTML = "salah"
-          setTimeout(function(){ hasil.innerHTML = "" }, 3000);
+          minus.innerHTML = "-1"
+          setTimeout(function(){ 
+            hasil.innerHTML = "" 
+            minus.innerHTML = ""
+          }, 3000);
           darah.innerHTML--
           if (darah.innerHTML === '0') {
             endModal.style.display = 'block'
