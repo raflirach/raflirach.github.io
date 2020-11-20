@@ -2,21 +2,37 @@ let hewan = document.getElementById('hewan')
 let kota = document.getElementById('kota')
 let modal = document.getElementById('myModal')
 
+let wrong = document.getElementById("wrong"); 
+let correct = document.getElementById("correct")
+let up = document.getElementById("up")
+let start = document.getElementById("start")
+let select = document.getElementById("select")
+
+let score = document.getElementById('score')
+let darah = document.getElementById('darah')
+
+up.play()
+
+hewan.addEventListener('mouseover', function(){
+  select.play()
+})
+kota.addEventListener('mouseover', function(){
+  select.play()
+})
 hewan.addEventListener('click', function(){
+    start.play()
+
     modal.style.display = 'none'
     const kata = [
-      "badak", 'kuda', 'ayam', 'gajah', 'buaya', 'Semut', 'Lebah', 'Nyamuk',
-      'lalat', 'landak', 'siput', 'Ular', 'katak', 'cacing'
+      'Anjing Laut',
+      // "badak", 'kuda', 'ayam', 'gajah', 'buaya', 'Semut', 'Lebah', 'Nyamuk',
+      // 'lalat', 'landak', 'siput', 'Ular', 'katak', 'cacing'
     ]
 
     let jawaban = document.getElementById('jawaban')
     let dash = document.getElementById('dash')
     let btnHint = document.getElementById('hint')
     let hasil = document.getElementById('hasil')
-    let score = document.getElementById('score')
-    let darah = document.getElementById('darah')
-    let wrong = document.getElementById("wrong"); 
-    let correct = document.getElementById("correct")
     
     score.innerHTML = 0
     darah.innerHTML = 3
@@ -80,6 +96,8 @@ hewan.addEventListener('click', function(){
 })
 
 kota.addEventListener('click', function(){
+    start.play()
+
     modal.style.display = 'none'
     const kata = [
         'Bandung', 'Semarang', 'Jakarta'
@@ -89,10 +107,6 @@ kota.addEventListener('click', function(){
     let dash = document.getElementById('dash')
     let btnHint = document.getElementById('hint')
     let hasil = document.getElementById('hasil')
-    let score = document.getElementById('score')
-    let darah = document.getElementById('darah')
-    let wrong = document.getElementById("wrong"); 
-    let correct = document.getElementById("correct")
     
     score.innerHTML = 0
     darah.innerHTML = 3

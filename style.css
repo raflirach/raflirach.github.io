@@ -108,3 +108,12 @@ footer {
       width: 80%;
       font-size: 40pt;
   }
+
+  #hewan, #kota {
+      cursor: pointer;
+  }
+
+  #hewan:hover, #kota:hover {
+    cursor: pointer;
+    color: red;
+}
