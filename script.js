@@ -19,7 +19,10 @@ let darah = document.getElementById('darah')
 let plus = document.getElementById('plus')
 let minus = document.getElementById('minus')
 
-setTimeout(function(){ up.play() }, 1000)
+window.onload = () => {
+  up.play()
+};
+
 
 endModal.style.display = 'none'
 
