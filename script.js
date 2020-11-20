@@ -20,11 +20,8 @@ let plus = document.getElementById('plus')
 let minus = document.getElementById('minus')
 
 window.onload = () => {
-  setTimeout(function(){ 
-    up.play()
-  }, 3000);
+  up.play()
 };
-
 
 endModal.style.display = 'none'
 
