@@ -81,7 +81,6 @@ footer {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; 
@@ -129,4 +128,20 @@ footer a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+
+#endDesc{
+    font-size: 24pt;
+    text-align: center;
+}
+
+#playAgain{
+    font-size: 32pt;
+    text-align: center;
+}
+
+#playAgain:hover{
+    color: red;
+    font-size: 32pt;
+    text-align: center;
 }

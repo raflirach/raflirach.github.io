@@ -2,6 +2,11 @@ let hewan = document.getElementById('hewan')
 let kota = document.getElementById('kota')
 let modal = document.getElementById('myModal')
 
+let endModal = document.getElementById('endModal')
+let endTitle = document.getElementById('endTitle')
+let endDesc = document.getElementById('endDesc')
+let playAgain = document.getElementById('playAgain')
+
 let wrong = document.getElementById("wrong"); 
 let correct = document.getElementById("correct")
 let up = document.getElementById("up")
@@ -12,6 +17,7 @@ let score = document.getElementById('score')
 let darah = document.getElementById('darah')
 
 up.play()
+endModal.style.display = 'none'
 
 hewan.addEventListener('mouseover', function(){
   select.play()
@@ -100,9 +106,11 @@ hewan.addEventListener('click', function(){
           setTimeout(function(){ hasil.innerHTML = "" }, 3000);
           darah.innerHTML--
           if (darah.innerHTML === '0') {
-            alert(`Game Over
-                        Score anda : ${score.innerHTML}`)
-            location.reload()
+            endModal.style.display = 'block'
+            endDesc.innerHTML = `score anda : ${score.innerHTML}`
+            playAgain.addEventListener('click', function(){
+              location.reload()
+            }) 
           }
         }
         document.getElementById('input').value = ''
@@ -191,9 +199,11 @@ kota.addEventListener('click', function(){
           setTimeout(function(){ hasil.innerHTML = "" }, 3000);
           darah.innerHTML--
           if (darah.innerHTML === '0') {
-            alert(`Game Over
-                        Score anda : ${score.innerHTML}`)
-            location.reload()
+            endModal.style.display = 'block'
+            endDesc.innerHTML = `score anda : ${score.innerHTML}`
+            playAgain.addEventListener('click', function(){
+              location.reload()
+            }) 
           }
         }
         document.getElementById('input').value = ''
