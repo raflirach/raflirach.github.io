@@ -19,7 +19,8 @@ let darah = document.getElementById('darah')
 let plus = document.getElementById('plus')
 let minus = document.getElementById('minus')
 
-up.play()
+setTimeout(function(){ up.play() }, 1000)
+
 endModal.style.display = 'none'
 
 hewan.addEventListener('mouseover', function(){
@@ -61,6 +62,10 @@ hewan.addEventListener('click', function(){
     let dash = document.getElementById('dash')
     let btnHint = document.getElementById('hint')
     let hasil = document.getElementById('hasil')
+
+    btnHint.addEventListener('mouseover', function() {
+      select.play()
+    })
     
     score.innerHTML = 0
     darah.innerHTML = 3
@@ -70,6 +75,8 @@ hewan.addEventListener('click', function(){
 
     let indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length-1))
     btnHint.addEventListener('click', function(){
+      start.play()
+
       btnHint.style.display = 'none'
       plus.innerHTML = '-50'
       plus.style.color = 'red'
@@ -172,6 +179,10 @@ kota.addEventListener('click', function(){
     let dash = document.getElementById('dash')
     let btnHint = document.getElementById('hint')
     let hasil = document.getElementById('hasil')
+
+    btnHint.addEventListener('mouseover', function() {
+      select.play()
+    })
     
     score.innerHTML = 0
     darah.innerHTML = 3
@@ -181,6 +192,8 @@ kota.addEventListener('click', function(){
 
     let indexHint = Math.ceil(Math.random() * (jawaban.innerHTML.length - 1))
     btnHint.addEventListener('click', function(){
+      start.play()
+
       btnHint.style.display = 'none'
       plus.innerHTML = '-50'
       plus.style.color = 'red'

@@ -61,6 +61,10 @@ main .score {
     cursor: pointer;
 }
 
+#hint:hover{
+    color: greenyellow;
+}
+
 footer {
     width: 100%;
     height: 150px;
