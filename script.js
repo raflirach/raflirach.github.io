@@ -108,6 +108,10 @@ hewan.addEventListener('click', function(){
           if (darah.innerHTML === '0') {
             endModal.style.display = 'block'
             endDesc.innerHTML = `score anda : ${score.innerHTML}`
+
+            playAgain.addEventListener('mouseover', function(){
+              select.play()
+            })
             playAgain.addEventListener('click', function(){
               location.reload()
             }) 
@@ -201,6 +205,10 @@ kota.addEventListener('click', function(){
           if (darah.innerHTML === '0') {
             endModal.style.display = 'block'
             endDesc.innerHTML = `score anda : ${score.innerHTML}`
+
+            playAgain.addEventListener('mouseover', function(){
+              select.play()
+            })
             playAgain.addEventListener('click', function(){
               location.reload()
             }) 

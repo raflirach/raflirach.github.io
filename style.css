@@ -141,6 +141,7 @@ footer a {
 }
 
 #playAgain:hover{
+    cursor: pointer;
     color: red;
     font-size: 32pt;
     text-align: center;
